@@ -55,10 +55,13 @@ TARGET_SCREEN_WIDTH := 1080
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-service
+
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.sdm660 \
-    android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sdm660.recovery
+    libcutils \
+    librecovery_updater_msm \
+    libz
 
 # Boot control debug
 PRODUCT_PACKAGES_DEBUG += \
@@ -115,7 +118,7 @@ PRODUCT_PACKAGES += \
     update_verifier
 
 PRODUCT_HOST_PACKAGES += \
-        brillo_update_payload
+    brillo_update_payload
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
